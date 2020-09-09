@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Hangul Date and Time"

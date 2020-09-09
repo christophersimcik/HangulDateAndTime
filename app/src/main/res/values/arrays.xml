@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="months">
+        <item>1|일월</item>
+        <item>2|이월</item>
+        <item>3|삼월</item>
+        <item>4|사월</item>
+        <item>5|오월</item>
+        <item>6|유월</item>
+        <item>7|칠월</item>
+        <item>8|팔월</item>
+        <item>9|구월</item>
+        <item>10|시월</item>
+        <item>11|십일월</item>
+        <item>12|십이월</item>
+    </string-array>
+
+    <string-array name="english_months">
+        <item>1|Jan.</item>
+        <item>2|Feb.</item>
+        <item>3|Mar.</item>
+        <item>4|Apr.</item>
+        <item>5|May.</item>
+        <item>6|Jun.</item>
+        <item>7|Jul.</item>
+        <item>8|Aug.</item>
+        <item>9|Sep.</item>
+        <item>10|Oct.</item>
+        <item>11|Nov.</item>
+        <item>12|Dec.</item>
+    </string-array>
+
+    <string-array name="hours">
+        <item>1|한시</item>
+        <item>2|두시</item>
+        <item>3|세시</item>
+        <item>4|네시</item>
+        <item>5|다섯시</item>
+        <item>6|여섯시</item>
+        <item>7|일곱시</item>
+        <item>8|여덟시</item>
+        <item>9|아홉시</item>
+        <item>10|열시</item>
+        <item>11|열한시</item>
+        <item>12|열두시</item>
+    </string-array>
+
+    <string-array name="sino_korean">
+        <item>0|</item>
+        <item>1|일</item>
+        <item>2|이</item>
+        <item>3|삼</item>
+        <item>4|사</item>
+        <item>5|오</item>
+        <item>6|육</item>
+        <item>7|칠</item>
+        <item>8|팔</item>
+        <item>9|구</item>
+        <item>10|십</item>
+        <item>11|십일</item>
+        <item>12|십이</item>
+        <item>13|십삼</item>
+        <item>14|십사</item>
+        <item>15|십오</item>
+        <item>16|십육</item>
+        <item>17|십칠</item>
+        <item>18|십팔</item>
+        <item>19|십구</item>
+        <item>20|이십</item>
+        <item>21|이십일</item>
+        <item>22|이십이</item>
+        <item>23|이십삼</item>
+        <item>24|이십사</item>
+        <item>25|이십오</item>
+        <item>26|이십육</item>
+        <item>27|이십칠</item>
+        <item>28|이십팔</item>
+        <item>29|이십구</item>
+        <item>30|삼십</item>
+        <item>31|삼십일</item>
+        <item>32|삼십이</item>
+        <item>33|삼십삼</item>
+        <item>34|삼십사</item>
+        <item>35|삼십오</item>
+        <item>36|삼십육</item>
+        <item>37|삼십칠</item>
+        <item>38|삼십팔</item>
+        <item>39|삼십구</item>
+        <item>40|사십</item>
+        <item>41|사십일</item>
+        <item>42|사십이</item>
+        <item>43|사십삼</item>
+        <item>44|사십사</item>
+        <item>45|사십오</item>
+        <item>46|사십육</item>
+        <item>47|사십칠</item>
+        <item>48|사십팔</item>
+        <item>49|사십구</item>
+        <item>50|오십</item>
+        <item>51|오십일</item>
+        <item>52|오십이</item>
+        <item>53|오십삼</item>
+        <item>54|오십사</item>
+        <item>55|오십오</item>
+        <item>56|오십육</item>
+        <item>57|오십칠</item>
+        <item>58|오십팔</item>
+        <item>59|오십구</item>
+        <item>1000|천</item>
+        <item>100|백</item>
+    </string-array>
+</resources>

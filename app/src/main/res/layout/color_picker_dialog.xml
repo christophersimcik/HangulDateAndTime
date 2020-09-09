@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/main_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/color_picker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.csimck.hangulwidget.ColorWheelView
+        android:layout_marginTop="@dimen/mid_margin"
+        android:id="@+id/color_select_wheel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/color_picker_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_header"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/saturation_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/saturation"
+        android:layout_marginTop="@dimen/low_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/color_select_wheel" />
+
+    <TextView
+        android:id="@+id/saturation_slider_label"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="@dimen/mid_margin"
+        android:gravity="bottom"
+        android:text="@string/saturation_slider"
+        android:layout_marginTop="@dimen/low_margin"
+        app:layout_constraintStart_toEndOf="@+id/saturation_image"
+        app:layout_constraintTop_toBottomOf="@+id/color_select_wheel" />
+
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/saturation_slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:progressDrawable="@drawable/seekbar_track"
+        android:splitTrack="false"
+        android:thumb="@drawable/thumb_seek_drawable"
+        android:layout_marginTop="@dimen/low_margin"
+        android:layout_marginStart="@dimen/low_margin"
+        android:layout_marginEnd="@dimen/low_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saturation_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/transparency_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/alpha"
+        android:layout_marginTop="@dimen/low_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saturation_slider" />
+
+    <TextView
+        android:id="@+id/alpha_slider_label"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="@dimen/mid_margin"
+        android:gravity="bottom"
+        android:text="@string/alpha_slider"
+        android:layout_marginTop="@dimen/low_margin"
+        app:layout_constraintStart_toEndOf="@+id/transparency_image"
+        app:layout_constraintTop_toBottomOf="@+id/saturation_slider" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/alpha_slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="255"
+        android:progressDrawable="@drawable/seekbar_track"
+        android:splitTrack="false"
+        android:thumb="@drawable/thumb_seek_drawable"
+        android:layout_marginTop="@dimen/low_margin"
+        android:layout_marginStart="@dimen/low_margin"
+        android:layout_marginEnd="@dimen/low_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transparency_image" />
+
+    <TextView
+        android:id="@+id/preview_select_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/color_select_preview"
+        android:layout_marginTop="@dimen/mid_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alpha_slider" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/color_select_preview"
+        android:layout_width="191dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="@dimen/low_margin"
+        android:contentDescription="@string/color_select_preview_description"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preview_select_label"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="@dimen/ok_button_dimensions"
+        android:layout_height="@dimen/ok_button_dimensions"
+        android:layout_marginEnd="12dp"
+        android:text="@string/ok"
+        android:textColor="@color/ok_button_color"
+        android:background="@drawable/ok_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
