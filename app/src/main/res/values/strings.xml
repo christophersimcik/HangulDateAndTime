@@ -6,7 +6,7 @@
     <string name="english_toggle">Remove/Add English</string>
     <string name="date_color_selector">A Date Color :</string>
     <string name="time_color_selector">A Time Color :</string>
-    <string name="line_spacing">Line Spacing</string>
+    <string name="line_spacing">Line Padding</string>
     <string name="sides">Side Padding</string>
     <string name="size">Size</string>
     <string name="time_frames">Period</string>

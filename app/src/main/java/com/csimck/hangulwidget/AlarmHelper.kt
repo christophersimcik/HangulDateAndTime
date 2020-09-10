@@ -12,24 +12,29 @@ class AlarmHelper {
     companion object {
         const val REQUEST_CODE = 0
         const val TAG = "ALARM_HELPER"
+        const val MILLIS_IN_MINUTE: Long = 60000
     }
 
     lateinit var alarmManager: AlarmManager
     lateinit var appWidgetManager: AppWidgetManager
 
+    fun cancelAlarm(context: Context?) {
+        alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.cancel(createIntent(context))
+    }
+
     fun setAlarm(context: Context?) {
         alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         appWidgetManager = AppWidgetManager.getInstance(context)
-        val nextAlarmTime: Long = DateTime.now().let {
-            val timeMinusSeconds = it.millis - it.millis % 60000
-            Log.i(TAG, "time = ${it.millis}")
-            Log.i(TAG, "time minus secs = $timeMinusSeconds")
-            Log.i(TAG, "next min = ${timeMinusSeconds + 60000}")
-            it.millis + 60000
+        val nextAlarm: Long = DateTime.now().let {
+            val seconds = it.millis % MILLIS_IN_MINUTE
+            val timeMinusSeconds = it.millis - seconds
+            timeMinusSeconds + MILLIS_IN_MINUTE
         }
+        Log.i(TAG, " nxt alrm = $nextAlarm")
         alarmManager.setExact(
             AlarmManager.RTC,
-            nextAlarmTime,
+            nextAlarm,
             createIntent(context)
         )
     }

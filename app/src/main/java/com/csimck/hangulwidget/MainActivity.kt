@@ -2,6 +2,7 @@ package com.csimck.hangulwidget
 
 import android.app.Activity
 import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -23,6 +24,7 @@ import androidx.core.graphics.alpha
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.*
 import net.danlew.android.joda.JodaTimeAndroid
 import kotlin.coroutines.CoroutineContext
@@ -77,7 +79,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
                 repository.getDisplayWidth(sharedPreferences),
                 repository.getDisplayHeight(sharedPreferences)
             ),
-            repository.getBackgroundAlpha(sharedPreferences),
+            repository.getBackgroundColor(sharedPreferences),
             repository.getBackgroundAlpha(sharedPreferences),
             repository.getLineSpacing(sharedPreferences),
             repository.getWidthPadding(sharedPreferences)
@@ -152,7 +154,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
         findViewById<AppCompatImageView>(R.id.view_background)
     }
 
-    private val fontDisplay: AppCompatTextView by lazy { findViewById<AppCompatTextView>(R.id.font_display) }
+    private val fontDisplay: AppCompatTextView by lazy {
+        findViewById<AppCompatTextView>(R.id.font_display)
+    }
 
     private var colorPickerDialog = ColorPickerDialog().also {
         it.registerListener(this)
@@ -199,6 +203,10 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
         background.setImageBitmap(customViewGroup.bitmap)
         background.background = Grid()
         val layoutParams = background.layoutParams
+
+        // populate font display text
+        fontDisplay.text = mapOfFonts[typeface]
+
 
         // toggle date
         findViewById<SwitchCompat>(R.id.date_switch)
@@ -316,6 +324,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
             }
 
         })
+
         //padding slider
         findViewById<SeekBar>(R.id.line_spacing_slider).let {
             it.progress = lineSpacing
@@ -531,7 +540,10 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
         background.background = null
         val remoteViews = RemoteViews(this.packageName, R.layout.widget_image_only)
         remoteViews.setImageViewBitmap(R.id.widget_image, customViewGroup.bitmap)
-        appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
+        val componentName = ComponentName(this, HangulDateTimeWidgetProvider::class.java)
+        for (id in appWidgetManager.getAppWidgetIds(componentName)) {
+            appWidgetManager.updateAppWidget(id, remoteViews)
+        }
     }
 
     private fun getPreferences() {
@@ -559,7 +571,6 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
         layoutParams.width = bitmap.width
         background.layoutParams = layoutParams
         background.setImageBitmap(bitmap)
-        background.invalidate()
         repository.setDisplayWidth(sharedPreferences, bitmap.width)
         repository.setDisplayHeight(sharedPreferences, bitmap.height)
     }

@@ -14,6 +14,7 @@ import android.util.Size
 import android.view.WindowManager
 import android.widget.RemoteViews
 import androidx.core.content.res.ResourcesCompat
+import net.danlew.android.joda.JodaTimeAndroid
 
 class HangulDateTimeWidgetProvider : AppWidgetProvider() {
 
@@ -63,17 +64,20 @@ class HangulDateTimeWidgetProvider : AppWidgetProvider() {
 
     override fun onEnabled(context: Context?) {
         super.onEnabled(context)
+        alarmHelper.setAlarm(context)
         Log.i(TAG, "ON ENABLED")
     }
 
     override fun onDisabled(context: Context?) {
         super.onDisabled(context)
+        alarmHelper.cancelAlarm(context)
         Log.i(TAG, "ON DISABLED")
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
         Log.i(TAG, "ON RECEIVED")
+        JodaTimeAndroid.init(context)
 
         context?.let {
             val sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES, 0)
@@ -145,7 +149,6 @@ class HangulDateTimeWidgetProvider : AppWidgetProvider() {
         val componentName = ComponentName(context?.packageName ?: "", javaClass.name)
         val ids = appWidgetManager.getAppWidgetIds(componentName)
         onUpdate(context, appWidgetManager, ids)
-        alarmHelper.setAlarm(context)
     }
 
     private fun updateTimeAndDate(timeHelper: TimeHelper, dateHelper: DateHelper) {

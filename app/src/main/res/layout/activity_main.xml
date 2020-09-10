@@ -275,9 +275,6 @@
             android:backgroundTint="@color/text_color"
             android:scaleType="fitCenter"
             android:layout_marginTop="@dimen/mid_margin"
-            app:layout_constraintEnd_toStartOf="@+id/color_header"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/side_slider" />
 
@@ -290,8 +287,6 @@
             android:textColor="@color/text_color"
             android:textSize="@dimen/main_header"
             android:layout_marginTop="@dimen/mid_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/paint_image"
             app:layout_constraintTop_toBottomOf="@+id/side_slider" />
 

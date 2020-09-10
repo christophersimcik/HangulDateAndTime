@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.util.Log
 import org.joda.time.DateTime
+import org.joda.time.DateTimeZone
 import java.util.*
 
 const val DEFAULT_TEXT_SZ = 18
@@ -20,9 +21,8 @@ class Repository private constructor() {
 
     fun getDateTime(): DateTime {
         Log.i(TAG, "zone = ${DateTime.now().zone}")
-        val timeZone = TimeZone.getDefault()
-
-        return DateTime.now().withZone(timeZone)
+        val dateTimeZone = DateTimeZone.forTimeZone(TimeZone.getDefault())
+        return DateTime.now().withZone(dateTimeZone)
     }
 
     fun getTimeColor(sharedPreferences: SharedPreferences): Int {
