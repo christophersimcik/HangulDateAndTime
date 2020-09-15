@@ -6,6 +6,5 @@
     android:minHeight="50dp"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="0"
-    android:previewImage="@drawable/hangul_date_time"
     android:widgetCategory="home_screen">
 </appwidget-provider>

@@ -17,7 +17,7 @@ class Grid : Drawable() {
     private lateinit var rects: Array<RectF>
     override fun draw(canvas: Canvas) {
         val size = Size(bounds.width(), bounds.height())
-        rects = getRects(size, getPositions(size)).also { it ->
+        rects = getRects(size, getPositions(size)).also {
             it.forEach { rect ->
                 canvas.drawRect(rect, paint)
             }

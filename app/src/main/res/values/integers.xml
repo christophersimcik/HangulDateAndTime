@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="text_size_progress">18</integer>
-    <integer name="text_size_max">50</integer>
-    <integer name="minTextSize">8</integer>
-    <integer name="color_select_cursor">25</integer>
+    <integer name="color_picker_max">255</integer>
 </resources>

@@ -39,10 +39,6 @@ class ColorWheelView @JvmOverloads constructor(
         positionY = h / 2.0f
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-    }
-
     private var isSelecting = false
     override fun onDrawForeground(canvas: Canvas?) {
         super.onDrawForeground(canvas)

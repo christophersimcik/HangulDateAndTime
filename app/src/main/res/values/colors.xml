@@ -5,8 +5,5 @@
     <color name="background">#fafafa</color>
     <color name="light_gray">#dedede</color>
     <color name="mid_gray">#9c9c9c</color>
-    <color name="dark_text">#2b2b2b</color>
-    <color name="korean_red">#cd2e3a</color>
-    <color name="korean_blue">#0047a0</color>
     <color name="text_color">#7f7f7f</color>
 </resources>

@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/main_activity_padding">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -41,9 +41,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_image" />
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/widget_layout"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/view_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/mid_margin"
@@ -60,10 +59,9 @@
             android:backgroundTint="@color/text_color"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include" />
+            app:layout_constraintTop_toBottomOf="@+id/view_background" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/options_header"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/mid_margin"
@@ -73,7 +71,7 @@
             android:textSize="@dimen/main_header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/options_image"
-            app:layout_constraintTop_toBottomOf="@+id/include" />
+            app:layout_constraintTop_toBottomOf="@+id/view_background" />
 
         <View
             android:id="@+id/options_divider"
@@ -139,7 +137,6 @@
             app:layout_constraintTop_toBottomOf="@+id/english_switch" />
 
         <View
-            android:id="@+id/text_divider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginTop="@dimen/low_margin"
@@ -271,22 +268,21 @@
             android:id="@+id/paint_image"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginTop="@dimen/mid_margin"
             android:background="@drawable/paint"
             android:backgroundTint="@color/text_color"
             android:scaleType="fitCenter"
-            android:layout_marginTop="@dimen/mid_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/side_slider" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/color_header"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginTop="@dimen/mid_margin"
             android:gravity="center_vertical"
             android:text="@string/colors"
             android:textColor="@color/text_color"
             android:textSize="@dimen/main_header"
-            android:layout_marginTop="@dimen/mid_margin"
             app:layout_constraintStart_toEndOf="@+id/paint_image"
             app:layout_constraintTop_toBottomOf="@+id/side_slider" />
 
@@ -322,7 +318,6 @@
             app:layout_constraintTop_toBottomOf="@+id/color_divider" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/date_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/date"
@@ -344,7 +339,6 @@
             app:layout_constraintTop_toBottomOf="@+id/color_divider" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/background_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/background"

@@ -1,12 +1,12 @@
 package com.csimck.hangulwidget
 
 class Time(
-    var hangulTimeFrame: String = "",
-    var hangulHour: String = "",
-    var hangulMinute: String = "",
-    var englishTimeFrame: String = "",
-    var englishHour: String = "",
-    var englishMinute: String = ""
+    private var hangulTimeFrame: String = "",
+    private var hangulHour: String = "",
+    private var hangulMinute: String = "",
+    private var englishTimeFrame: String = "",
+    private var englishHour: String = "",
+    private var englishMinute: String = ""
 ) {
     fun updateHangul(time: String) {
         val time = time.split("-")

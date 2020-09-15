@@ -7,9 +7,9 @@ const val MONTH = 1
 const val DAY = 2
 
 class DateHelper(
-    var months: Map<String,String>? = null,
-    var nums: Map<String,String>? = null,
-    var englishMonths : Map<String,String>? = null
+    private var months: Map<String,String>? = null,
+    private var nums: Map<String,String>? = null,
+    private var englishMonths : Map<String,String>? = null
 ) {
     private val formatDate = DateTimeFormat.forPattern("yyyy,M,d")
     private val repository = Repository.instance

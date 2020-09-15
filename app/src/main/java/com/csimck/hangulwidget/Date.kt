@@ -1,12 +1,12 @@
 package com.csimck.hangulwidget
 
 class Date(
-    var hangulYear: String = "",
-    var hangulMonth: String = "",
-    var hangulDay: String = "",
-    var englishYear: String = "",
-    var englishMonth: String = "",
-    var englishDay: String = ""
+    private var hangulYear: String = "",
+    private var hangulMonth: String = "",
+    private var hangulDay: String = "",
+    private var englishYear: String = "",
+    private var englishMonth: String = "",
+    private var englishDay: String = ""
 ) {
 
     fun updateEnglish(time: String) {

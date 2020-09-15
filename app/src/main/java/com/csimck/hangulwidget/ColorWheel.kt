@@ -4,9 +4,7 @@ import android.graphics.*
 import android.graphics.drawable.Drawable
 
 class ColorWheel : Drawable() {
-    companion object {
-        const val TAG = "COLOR_WHEEL"
-    }
+    companion object;
 
     private val colors = intArrayOf(
         Color.RED,

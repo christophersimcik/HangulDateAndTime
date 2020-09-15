@@ -19,9 +19,9 @@ class CustomViewGroup(
     var bitmap = createBitmap(initialSize.width, initialSize.height, Bitmap.Config.ARGB_8888)
     lateinit var listener: OnBitmapChangedListener
     private var canvas = Canvas(bitmap)
-    var contentHeight = 0
+    private var contentHeight = 0
     var contentWidth = 0
-    var widthPlusPadding = 0
+    private var widthPlusPadding = 0
     var widestString = ""
     var listOfViews = ArrayList<CustomTextView>()
     private val paint = Paint().apply {
@@ -65,7 +65,7 @@ class CustomViewGroup(
         setViewPositions()
     }
 
-    var size: Size = initialSize
+    private var size: Size = initialSize
         set(value) {
             field = value
             if (isNotZero(value)) {
@@ -82,7 +82,7 @@ class CustomViewGroup(
         if (this::listener.isInitialized) listener.onBitmapChanged(bitmap)
     }
 
-    fun updateBitmap() {
+    private fun updateBitmap() {
         bitmap.recycle()
         bitmap = createBitmap(size.width, size.height, Bitmap.Config.ARGB_8888)
         canvas = Canvas(bitmap)
@@ -143,7 +143,7 @@ class CustomViewGroup(
         fun onBitmapChanged(bitmap: Bitmap)
     }
 
-    fun getWidestView(width: Int) {
+    private fun getWidestView(width: Int) {
         if (width >= contentWidth) {
             contentWidth = width
         }

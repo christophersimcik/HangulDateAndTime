@@ -8,23 +8,22 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.*
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.Size
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
-import android.view.View
 import android.view.WindowManager
-import android.widget.*
+import android.widget.CompoundButton
+import android.widget.RemoteViews
+import android.widget.SeekBar
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.*
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.alpha
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.*
 import net.danlew.android.joda.JodaTimeAndroid
 import kotlin.coroutines.CoroutineContext
@@ -578,9 +577,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
     private fun getMaxWidth(): Int {
         val displayMetrics = DisplayMetrics()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            this?.display?.getRealMetrics(displayMetrics)
+            this.display?.getRealMetrics(displayMetrics)
         } else {
-            this?.getSystemService(Context.WINDOW_SERVICE).let {
+            this.getSystemService(Context.WINDOW_SERVICE).let {
                 it as WindowManager
                 it.defaultDisplay.getMetrics(displayMetrics)
             }
@@ -592,6 +591,16 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
         val text = customViewGroup.widestString
         paint.getTextBounds(text, 0, text.length, rect)
         return rect.width() < maxWidth - 100 - customViewGroup.mSidePadding.doubled()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("TAG","ON STOP CALLED")
+        updateRemoteViews()
+        val resultValue = Intent().apply {
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        }
+        setResult(Activity.RESULT_OK, resultValue)
     }
 }
 

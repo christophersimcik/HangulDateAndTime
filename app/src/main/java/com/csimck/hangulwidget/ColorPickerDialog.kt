@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.SeekBar
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
@@ -29,6 +28,7 @@ class ColorPickerDialog : DialogFragment(), ColorWheelView.ColorCallback {
     private var saturation = 0
     private var transparency = 0
     private var color = 0
+    private val repository = Repository.instance
     var type = ""
 
     companion object {
@@ -161,24 +161,24 @@ class ColorPickerDialog : DialogFragment(), ColorWheelView.ColorCallback {
         Log.i(TAG, "prefs $type")
         when (type) {
             TIME -> {
-                transparency = sharedPreferences?.getInt(TIME_ALPHA, 0) ?: 0
-                saturation = sharedPreferences?.getInt(TIME_SATURATION, 0) ?: 0
+                transparency = repository.getTimeAlpha(sharedPreferences)
+                saturation = repository.getTimeSaturation(sharedPreferences)
                 color = sharedPreferences?.getInt(TIME_COLOR, 0) ?: 0
                 saturation_slider.progress = saturation
                 alpha_slider.progress = transparency
                 colorPreview.foreground = addTransparency(color, transparency).toDrawable()
             }
             DATE -> {
-                transparency = sharedPreferences?.getInt(DATE_ALPHA, 0) ?: 0
-                saturation = sharedPreferences?.getInt(DATE_SATURATION, 0) ?: 0
+                transparency = repository.getDateAlpha(sharedPreferences)
+                saturation = repository.getDateSaturation(sharedPreferences)
                 color = sharedPreferences?.getInt(DATE_COLOR, 0) ?: 0
                 saturation_slider.progress = saturation
                 alpha_slider.progress = transparency
                 colorPreview.foreground = addTransparency(color, transparency).toDrawable()
             }
             BACKGROUND -> {
-                transparency = sharedPreferences?.getInt(BACKGROUND_ALPHA, 0) ?: 0
-                saturation = sharedPreferences?.getInt(BACKGROUND_SATURATION, 0) ?: 0
+                transparency = repository.getBackgroundAlpha(sharedPreferences)
+                saturation = repository.getBackgroundSaturation(sharedPreferences)
                 color = sharedPreferences?.getInt(BACKGROUND_COLOR, 0) ?: 0
                 saturation_slider.progress = saturation
                 alpha_slider.progress = transparency

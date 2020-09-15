@@ -4,29 +4,17 @@
     <string name="widget_config_header"><b>Hangul Clock Configuration</b></string>
     <string name="date_toggle">Remove/Add Date</string>
     <string name="english_toggle">Remove/Add English</string>
-    <string name="date_color_selector">A Date Color :</string>
-    <string name="time_color_selector">A Time Color :</string>
     <string name="line_spacing">Line Padding</string>
     <string name="sides">Side Padding</string>
-    <string name="size">Size</string>
-    <string name="time_frames">Period</string>
     <string name="time">Time</string>
     <string name="date">Date</string>
     <string name="background">Background</string>
-    <string name="time_hour">Hour</string>
-    <string name="time_minute">Minute</string>
-    <string name="date_year">Year</string>
-    <string name="date_month">Month</string>
-    <string name="date_day">Day</string>
     <string name="text_size">Text Size</string>
     <string name="color_picker"><b>Color Picker</b></string>
     <string name="color_select_preview"><b>Color Preview</b></string>
     <string name="alpha_slider">Transparency</string>
     <string name="saturation_slider">Saturation</string>
     <string name="color_picker_description">Color Picker</string>
-    <string name="preview">Preview</string>
-    <string name="background_button">Color</string>
-    <string name="background_color">Background Color :</string>
     <string name="color_select_preview_description">Color Selection Preview</string>
     <string name="bmdhyeon"><i>BM DOHYEON</i></string>
     <string name="bmhanna_11yrs"><i>BM HANNA 11YS</i></string>
@@ -47,4 +35,5 @@
     <string name="options"><b>Options</b></string>
     <string name="text"><b>Text</b></string>
     <string name="ok"><u>OK</u></string>
+    <string name ="widget_preview_window_description">window that features the widget preview</string>
 </resources>

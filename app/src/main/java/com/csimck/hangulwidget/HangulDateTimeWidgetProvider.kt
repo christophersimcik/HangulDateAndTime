@@ -6,12 +6,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.*
-import android.os.Build
-import android.util.DisplayMetrics
+import android.graphics.Color
+import android.graphics.Typeface
 import android.util.Log
 import android.util.Size
-import android.view.WindowManager
 import android.widget.RemoteViews
 import androidx.core.content.res.ResourcesCompat
 import net.danlew.android.joda.JodaTimeAndroid
@@ -47,12 +45,17 @@ class HangulDateTimeWidgetProvider : AppWidgetProvider() {
     ) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
         Log.i(TAG, "ON UPDATE")
+        if(alarmHelper.checkAlarmNotSet(context)){
+            alarmHelper.setAlarm(context)
+            Log.i(TAG,"ALARM HELPER")
+        }
         appWidgetIds?.forEach {
             val views = RemoteViews(context?.packageName, R.layout.widget_image_only)
             if (this::customViewGroup.isInitialized) {
                 views.setImageViewBitmap(R.id.widget_image, customViewGroup.bitmap)
             }
             appWidgetManager?.updateAppWidget(it, views)
+
             Log.i(TAG, "update called")
         }
     }
