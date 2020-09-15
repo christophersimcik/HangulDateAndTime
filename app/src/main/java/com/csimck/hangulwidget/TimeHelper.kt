@@ -1,7 +1,6 @@
 package com.csimck.hangulwidget
 
 import android.content.Context
-import android.util.Log
 import org.joda.time.format.DateTimeFormat
 
 const val TAG = "TimeHelper"

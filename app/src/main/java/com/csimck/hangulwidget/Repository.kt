@@ -39,6 +39,14 @@ class Repository private constructor() {
         sharedPreferences?.edit().putInt(TIME_SATURATION, value).apply()
     }
 
+    fun setTimeColor(sharedPreferences : SharedPreferences, value : Int) {
+        sharedPreferences?.edit().putInt(TIME_COLOR, value).apply()
+    }
+
+    fun setTimeAlpha(sharedPreferences : SharedPreferences, value : Int) {
+        sharedPreferences?.edit().putInt(TIME_ALPHA, value).apply()
+    }
+
     fun getDateColor(sharedPreferences: SharedPreferences?): Int {
         return sharedPreferences?.getInt(DATE_COLOR, Color.BLACK) ?: Color.BLACK
     }
@@ -50,10 +58,18 @@ class Repository private constructor() {
     fun getDateSaturation(sharedPreferences : SharedPreferences?): Int {
         return sharedPreferences?.getInt(DATE_SATURATION, MAX_ALPHA) ?: MAX_ALPHA
     }
+
     fun setDateSaturation(sharedPreferences : SharedPreferences, value : Int) {
         sharedPreferences?.edit().putInt(DATE_SATURATION, value).apply()
     }
 
+    fun setDateColor(sharedPreferences : SharedPreferences, value : Int) {
+        sharedPreferences?.edit().putInt(DATE_COLOR, value).apply()
+    }
+
+    fun setDateAlpha(sharedPreferences : SharedPreferences, value : Int) {
+        sharedPreferences?.edit().putInt(DATE_ALPHA, value).apply()
+    }
 
     fun getTextSize(sharedPreferences: SharedPreferences?): Int {
         return sharedPreferences?.getInt(TEXT_SZ, DEFAULT_TEXT_SZ) ?: DEFAULT_TEXT_SZ
@@ -72,6 +88,14 @@ class Repository private constructor() {
     }
     fun setBackgroundSaturation(sharedPreferences : SharedPreferences, value : Int) {
         sharedPreferences?.edit().putInt(BACKGROUND_SATURATION, value).apply()
+    }
+
+    fun setBackgroundColor(sharedPreferences : SharedPreferences, value : Int) {
+        sharedPreferences?.edit().putInt(BACKGROUND_COLOR, value).apply()
+    }
+
+    fun setBackgroundAlpha(sharedPreferences : SharedPreferences, value : Int) {
+        sharedPreferences?.edit().putInt(BACKGROUND_ALPHA, value).apply()
     }
 
     fun getDateVisibility(sharedPreferences: SharedPreferences?): Boolean {

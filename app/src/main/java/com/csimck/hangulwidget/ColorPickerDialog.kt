@@ -163,7 +163,7 @@ class ColorPickerDialog : DialogFragment(), ColorWheelView.ColorCallback {
             TIME -> {
                 transparency = repository.getTimeAlpha(sharedPreferences)
                 saturation = repository.getTimeSaturation(sharedPreferences)
-                color = sharedPreferences?.getInt(TIME_COLOR, 0) ?: 0
+                color = repository.getTimeColor(sharedPreferences)
                 saturation_slider.progress = saturation
                 alpha_slider.progress = transparency
                 colorPreview.foreground = addTransparency(color, transparency).toDrawable()
@@ -171,7 +171,7 @@ class ColorPickerDialog : DialogFragment(), ColorWheelView.ColorCallback {
             DATE -> {
                 transparency = repository.getDateAlpha(sharedPreferences)
                 saturation = repository.getDateSaturation(sharedPreferences)
-                color = sharedPreferences?.getInt(DATE_COLOR, 0) ?: 0
+                color = repository.getDateColor(sharedPreferences)
                 saturation_slider.progress = saturation
                 alpha_slider.progress = transparency
                 colorPreview.foreground = addTransparency(color, transparency).toDrawable()
@@ -179,7 +179,7 @@ class ColorPickerDialog : DialogFragment(), ColorWheelView.ColorCallback {
             BACKGROUND -> {
                 transparency = repository.getBackgroundAlpha(sharedPreferences)
                 saturation = repository.getBackgroundSaturation(sharedPreferences)
-                color = sharedPreferences?.getInt(BACKGROUND_COLOR, 0) ?: 0
+                color = repository.getBackgroundColor(sharedPreferences)
                 saturation_slider.progress = saturation
                 alpha_slider.progress = transparency
                 colorPreview.foreground = addTransparency(color, transparency).toDrawable()

@@ -424,9 +424,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
         Log.i(TAG, "type $type")
         when (type) {
             BACKGROUND -> {
-                sharedPreferences.edit().putInt(BACKGROUND_SATURATION, values[SATURATION]).apply()
-                sharedPreferences.edit().putInt(BACKGROUND_COLOR, values[COLOR]).apply()
-                sharedPreferences.edit().putInt(BACKGROUND_ALPHA, values[TRANSPARENCY]).apply()
+                repository.setBackgroundSaturation(sharedPreferences, values[SATURATION])
+                repository.setBackgroundColor(sharedPreferences, values[COLOR])
+                repository.setBackgroundAlpha(sharedPreferences, values[TRANSPARENCY])
                 backgroundColor = values[COLOR]
                 backgroundAlpha = values[TRANSPARENCY]
                 customViewGroup.mColor = backgroundColor
@@ -435,9 +435,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
             }
 
             TIME -> {
-                sharedPreferences.edit().putInt(TIME_SATURATION, values[SATURATION]).apply()
-                sharedPreferences.edit().putInt(TIME_COLOR, values[COLOR]).apply()
-                sharedPreferences.edit().putInt(TIME_ALPHA, values[TRANSPARENCY]).apply()
+                repository.setTimeSaturation(sharedPreferences, values[SATURATION])
+                repository.setTimeColor(sharedPreferences, values[COLOR])
+                repository.setTimeAlpha(sharedPreferences, values[TRANSPARENCY])
                 timeColor = values[COLOR]
                 timeAlpha = values[TRANSPARENCY]
                 hangulTime.mColor = timeColor
@@ -446,9 +446,9 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
                 englishTime.mAlpha = timeAlpha
             }
             DATE -> {
-                sharedPreferences.edit().putInt(DATE_SATURATION, values[SATURATION]).apply()
-                sharedPreferences.edit().putInt(DATE_COLOR, values[COLOR]).apply()
-                sharedPreferences.edit().putInt(DATE_ALPHA, values[TRANSPARENCY]).apply()
+                repository.setDateSaturation(sharedPreferences, values[SATURATION])
+                repository.setDateColor(sharedPreferences, values[COLOR])
+                repository.setDateAlpha(sharedPreferences, values[TRANSPARENCY])
                 dateColor = values[COLOR]
                 dateAlpha = values[TRANSPARENCY]
                 hangulDate.mColor = dateColor
@@ -595,7 +595,7 @@ class MainActivity : AppCompatActivity(), ColorPickerDialog.Callback,
 
     override fun onStop() {
         super.onStop()
-        Log.i("TAG","ON STOP CALLED")
+        Log.i("TAG", "ON STOP CALLED")
         updateRemoteViews()
         val resultValue = Intent().apply {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
